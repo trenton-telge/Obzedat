@@ -1,4 +1,5 @@
 # Oloro-Web
+[![CodeQL](https://github.com/trenton-telge/Obzedat/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/trenton-telge/Obzedat/actions/workflows/codeql-analysis.yml)
 ### About
 A web-based life counter for Magic: The Gathering with a view for Twitch streaming.\
 Installable as a Progressive Web App on most devices.     
