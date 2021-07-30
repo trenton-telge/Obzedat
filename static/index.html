@@ -23,7 +23,8 @@
 <body>
     <div id="start-screen" class="main-flex">
         <h1 class="fw">Obzedat</h1>
-        <div class="fw fw-wrapper">
+        <div class="fw fw-wrapper stack">
+            <label for="game-code" id="game-code-label">Enter game code:</label>
             <input id="game-code" name="game-code"
                type="text" size="6" maxlength="6"
                pattern="[A-Za-z]{6}" autofocus
@@ -43,8 +44,8 @@
         <div class="fw fw-wrapper">
             <h3>Game Options</h3>
         </div>
-        <div class="fw fw-wrapper">
-            <label for="starting-total">Starting Life Total</label>
+        <div class="fw fw-wrapper stack">
+            <label for="starting-total" id="starting-total-label">Starting life total:</label>
             <input id="starting-total" name="starting-total"
                    type="number" min="0" step="5"
                    value="40" size="6">
@@ -66,6 +67,7 @@
     <div id="twitch-screen" class="main-flex">
 
     </div>
+    <div id="toast"></div>
 </body>
 <script src="game.js"></script>
 <script src="pwa.js"></script>

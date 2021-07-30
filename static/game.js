@@ -6,9 +6,11 @@ socket.on('message', function(data) {
     console.log(data);
 });
 socket.on('lifetotal-change', function (totalString) {
-    let total = JSON.parse(totalString);
-    if (total.tag === "life") {
-        document.getElementById(total.user).innerHTML = `<p>${total.value}</p>`
+    if (twitchMode) {
+        let total = JSON.parse(totalString);
+        if (total.tag === "life") {
+            document.getElementById(total.user).innerHTML = `<p>${total.value}</p>`
+        }
     }
 });
 socket.on('request-init', function() {
@@ -96,9 +98,13 @@ function subtractLife() {
 }
 
 function joinAsTwitch(code) {
-    gameID = code.toUpperCase();
-    twitchMode = true;
-    socket.emit('join-lobby-twitch', JSON.stringify({user: USER_ID, game: gameID}));
+    if (code === "" || code === null) {
+        showError("Can't join without a game code.");
+    } else {
+        gameID = code.toUpperCase();
+        twitchMode = true;
+        socket.emit('join-lobby-twitch', JSON.stringify({user: USER_ID, game: gameID}));
+    }
 }
 
 function displayLifeTotalsForTwitch(lifeTotals) {
@@ -111,4 +117,11 @@ function displayLifeTotalsForTwitch(lifeTotals) {
             </div>`
         num++;
     });
+}
+
+function showError(message) {
+    const x = document.getElementById("toast");
+    x.innerText = message;
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
