@@ -1,0 +1,140 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+:root {
+    --theme-color: #26221A;
+    --background-color: #AABFAF;
+    --accent-color: #A67665;
+    --background-color-light: #D9B19A;
+    --accent-color-dark: #594A3C;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    background-color: var(--background-color);
+}
+.fw {
+    width: 100%;
+}
+.fw-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#start-screen {
+    text-align: center;
+}
+#start-screen .fw-wrapper {
+    margin-top: 10px;
+}
+h1 {
+    font-size: 24pt;
+}
+input {
+    font-size: 18pt;
+    text-transform: uppercase;
+}
+button {
+    padding: 10px;
+    font-size: 18pt;
+}
+#init-screen {
+    display: none;
+}
+#counter-screen {
+    display: none;
+    height: 100%;
+}
+#code-display {
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-size: 36px;
+}
+.counter-container {
+    padding: 2vw;
+    display: flex;
+    width: calc(100% - 4vw);
+    height: calc(100% - 4vw - 100px);
+}
+.counter-ob {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.counter-num {
+    color: var(--background-color-light);
+    pointer-events: none;
+    z-index: 20;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    width: 90vw;
+    font-size: 15vw;
+}
+
+.counter-top {
+    border-radius: 25px 25px 0 0;
+    background-color: var(--theme-color);
+    height: 50%;
+    margin: 0;
+    z-index: 10;
+    width: 96vw;
+}
+.counter-bottom {
+    border-radius: 0 0 25px 25px;
+    background-color: var(--theme-color);
+    height: 50%;
+    margin: 0;
+    z-index: 10;
+    width: 96vw;
+}
+.twitch-totals-container {
+    width: 130px;
+    padding: 30px;
+    color: var(--background-color-light);
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.twitch-life-container {
+    border-radius: 10px;
+    background-color: var(--theme-color);
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+.twitch-player-name {
+    border-radius: 10px;
+    background-color: var(--theme-color);
+    text-align: center;
+    padding: 6px;
+    width: 100%;
+}

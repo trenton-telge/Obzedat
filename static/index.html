@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Obzedat</title>
+    <meta name="description" content="A Magic: The Gathering live life counter for Twitch.">
+    <meta name="theme-color" content="#26221A">
+    <meta name="background-color" content="#AABFAF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="master.css">
+    <link rel="manifest" type="text/json" href="pwa.webmanifest">
+    <link rel="apple-touch-icon" href="images/Obzedat.png">
+    <link rel="icon" href="images/favicon.ico" sizes="any">
+    <link rel="icon" href="images/Obzedat.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1; viewport-fit=cover">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div id="start-screen" class="main-flex">
+        <h1 class="fw">Obzedat</h1>
+        <div class="fw fw-wrapper">
+            <input id="game-code" name="game-code"
+               type="text" size="6" maxlength="6"
+               pattern="[A-Za-z]{6}" autofocus
+               autocapitalize="characters" autocomplete="off">
+        </div>
+        <div class="fw fw-wrapper">
+            <button onclick="joinGame(document.getElementById('game-code').value)">Join Lobby</button>
+        </div>
+        <div class="fw fw-wrapper">
+            <button onclick="createGame()">Start Lobby</button>
+        </div>
+        <div class="fw fw-wrapper">
+            <button onclick="joinAsTwitch(document.getElementById('game-code').value)">Show Totals</button>
+        </div>
+    </div>
+    <div id="init-screen" class="main-flex">
+        <div class="fw fw-wrapper">
+            <h3>Game Options</h3>
+        </div>
+        <div class="fw fw-wrapper">
+            <label for="starting-total">Starting Life Total</label>
+            <input id="starting-total" name="starting-total"
+                   type="number" min="0" step="5"
+                   value="40" size="6">
+        </div>
+        <div class="fw fw-wrapper">
+            <button onclick="submitPreferences();">Start Game</button>
+        </div>
+    </div>
+    <div id="counter-screen" class="main-flex">
+        <div class="fw fw-wrapper">
+            <h3 id="code-display"></h3>
+        </div>
+        <div class="fw counter-container">
+            <div id="counter-n1" class="counter-wrapper">
+
+            </div>
+        </div>
+    </div>
+    <div id="twitch-screen" class="main-flex">
+
+    </div>
+</body>
+<script src="game.js"></script>
+<script src="pwa.js"></script>
+</html>
