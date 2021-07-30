@@ -2,6 +2,31 @@ let socket = io();
 let gameID;
 let myTotal;
 let twitchMode = false;
+let wakeLock = null;
+if ('wakeLock' in navigator) {
+    const requestWakeLock = async () => {
+        try {
+            wakeLock = await navigator.wakeLock.request('screen');
+            wakeLock.addEventListener('release', () => {
+                console.log('Wake lock released.');
+            });
+        } catch (err) {
+            console.error(`${err.name}, ${err.message}`);
+        } finally {
+            if (wakeLock) {
+                console.log("Wake lock established.")
+            }
+        }
+    };
+    const handleVisibilityChange = async () => {
+        if (wakeLock !== null && document.visibilityState === 'visible') {
+            await requestWakeLock();
+        }
+    };
+    requestWakeLock().then();
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+}
+
 socket.on('message', function(data) {
     console.log(data);
 });
